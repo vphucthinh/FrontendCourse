@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app-prod
+    build:
+      context: .
+    ports:
+        - "80:80"
+    environment:
+      - VITE_LOCAL_IMG_URL=/image
+      - VITE_REACT_APP_BASE_IMG_URL=https://res.cloudinary.com/ieltstinder/
+      - VITE_LOCAL_API_URL=/api
+      - VITE_REACT_APP_SERVER_URL=https://setilmsbackend.azurewebsites.net/api/v1
