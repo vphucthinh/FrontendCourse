@@ -5,7 +5,7 @@ import api from "@/api/api.jsx";
 import { useAuth } from "../../provider/authProvider";
 
 export default function LoginForm() {
-  const [username, setUsername] = useState(""); // Username or Email
+  const [username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { setToken } = useAuth(); 
