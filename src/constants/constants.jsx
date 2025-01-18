@@ -1,15 +1,17 @@
 export const Constants = {
-    API_URL: import.meta.env.VITE_LOCAL_API_URL,
+    API_URL: "http://localhost:5173", 
     API_ENDPOINTS: {
-        AUTH: {
-            TOKEN: "token",
-            REFRESH: "token/refresh",
-        },
-        USER: {
-            PROFILE: "/profiles/me/"
-        },
-        IMG_ROOT: import.meta.env.VITE_LOCAL_IMG_URL,
-        CLASS_TAG: [],
-        PAGE_SIZE: [10, 20, 30],
+      AUTH: {
+        LOGIN: "api/auth/login", 
+        REGISTER: "api/auth/register", 
+        REFRESH: "api/auth/refresh", 
+      },
+      USER: {
+        PROFILE: "api/profiles/me/", 
+      },
+      IMG_ROOT: import.meta.env.VITE_LOCAL_IMG_URL, 
+      CLASS_TAG: [],
+      PAGE_SIZE: [10, 20, 30],
     }
-};
+  };
+  

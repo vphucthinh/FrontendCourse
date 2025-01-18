@@ -1,37 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Constants } from "@/constants/constants.jsx";
-import api, { apiUser } from "@/api/api.jsx";
+import api from "@/api/api.jsx"; 
 import { useAuth } from "../../provider/authProvider";
 
 export default function LoginForm() {
-  const [identifier, setIdentifier] = useState(""); // Single state for either email or username
+  const [username, setUsername] = useState(""); // Username or Email
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isEmail, setIsEmail] = useState(false); // State to track if the input is an email
-  const { setToken } = useAuth();
+  const { setToken } = useAuth(); 
   const navigate = useNavigate();
 
-  const login = async (identifier, password, isEmail) => {
+  const login = async (username, password) => {
     try {
-      // Prepare payload with separate fields for username or email
-      const payload = isEmail
-        ? { email: identifier, password }
-        : { username: identifier, password };
-
-      const response = await api.post(
-        `${Constants.API_ENDPOINTS.AUTH.TOKEN}`,
-        payload,
-        { headers: { "Content-Type": "application/json" } }
-      );
-      const { access, refresh } = response;
+      const response = await api.post(`${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.LOGIN}`, {
+        username,
+        password,
+      });
+      const { access, refresh } = response.data.data; 
       localStorage.setItem("rtoken", refresh);
       sessionStorage.setItem("rtoken", refresh);
-      setToken(access);
+      setToken(access); 
 
       return response;
     } catch (error) {
-      throw error || "An unexpected error occurred.";
+      throw error.response?.data?.message || "An unexpected error occurred.";
     }
   };
 
@@ -39,16 +32,12 @@ export default function LoginForm() {
     e.preventDefault();
     setError("");
 
-    // Check if the identifier is an email or username
-    const isEmailFormat = identifier.includes("@");
-    setIsEmail(isEmailFormat);
-
     try {
-      const response = await login(identifier, password, isEmailFormat);
+      const response = await login(username, password);
       console.log("Login successful:", response);
-      navigate("/");
+      navigate("/"); 
     } catch (error) {
-      setError(error.detail || error);
+      setError(error); 
     }
   };
 
@@ -60,10 +49,8 @@ export default function LoginForm() {
             <div className="px-50 py-50 md:px-25 md:py-25 bg-white shadow-1 rounded-16">
               <h3 className="text-30 lh-13">Login</h3>
               <p className="mt-10">
-                Dont have an account yet?
-                <Link to="/signup" className="text-purple-1">
-                  Sign up for free
-                </Link>
+                Don't have an account yet?
+                <Link to="/signup" className="text-purple-1">Sign up for free</Link>
               </p>
 
               {error && (
@@ -81,21 +68,17 @@ export default function LoginForm() {
                 onSubmit={handleSubmit}
               >
                 <div className="col-12">
-                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Username Or Email
-                  </label>
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">Username Or Email</label>
                   <input
                     required
                     type="text"
                     placeholder="Username or Email"
-                    value={identifier}
-                    onChange={(e) => setIdentifier(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="col-12">
-                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Password
-                  </label>
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">Password</label>
                   <input
                     required
                     type="password"

@@ -1,10 +1,35 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
+import { Constants } from "@/constants/constants.jsx";
+import api from "@/api/api.jsx";
 
 export default function SignUpForm() {
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    const payload = { email, username, password };
+
+    try {
+      const response = await api.post(`${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.REGISTER}`, payload);
+      console.log("User registered successfully:", response);
+      window.location.href = "/login"; 
+    } catch (error) {
+      setError(error.response?.data?.message || "An unexpected error occurred.");
+    }
   };
+
   return (
     <div className="form-page__content lg:py-50">
       <div className="container">
@@ -13,11 +38,19 @@ export default function SignUpForm() {
             <div className="px-50 py-50 md:px-25 md:py-25 bg-white shadow-1 rounded-16">
               <h3 className="text-30 lh-13">Sign Up</h3>
               <p className="mt-10">
-                Already have an account?
-                <Link to="/login" className="text-purple-1">
-                  Log in
-                </Link>
+                Already have an account? 
+                <Link to="/login" className="text-purple-1">Log in</Link>
               </p>
+
+              {error && (
+                <div className="row y-gap-20">
+                  <div className="col-12">
+                    <div className="d-flex items-center justify-between bg-error-1 pl-30 pr-20 py-30 rounded-8">
+                      <div className="text-error-2 lh-1 fw-500">{error}</div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <form
                 className="contact-form respondForm__form row y-gap-20 pt-30"
@@ -27,31 +60,53 @@ export default function SignUpForm() {
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Email address *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input
+                    required
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Username *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input
+                    required
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Password *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input
+                    required
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Confirm Password *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input
+                    required
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
                 </div>
                 <div className="col-12">
                   <button
                     type="submit"
-                    name="submit"
-                    id="submit"
                     className="button -md -green-1 text-dark-1 fw-500 w-1/1"
                   >
                     Register
