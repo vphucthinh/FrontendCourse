@@ -1,26 +1,28 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Constants } from "@/constants/constants.jsx";
-import api from "@/api/api.jsx"; 
-import { useAuth } from "../../provider/authProvider";
+import api from "@/api/api.jsx";
+import { useAuth } from "@/provider/authProvider";
 
 export default function LoginForm() {
-  const [username, setUsername] = useState(""); 
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { setToken } = useAuth(); 
+  const { setToken } = useAuth();
   const navigate = useNavigate();
 
   const login = async (username, password) => {
     try {
-      const response = await api.post(`${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.LOGIN}`, {
-        username,
-        password,
-      });
-      const { access, refresh } = response.data.data; 
+      const response = await api.post(
+        `${Constants.API_URL}/${Constants.API_ENDPOINTS.AUTH.LOGIN}`,
+        { username, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      const { access, refresh } = response.data.data;
       localStorage.setItem("rtoken", refresh);
       sessionStorage.setItem("rtoken", refresh);
-      setToken(access); 
+      setToken(access);
 
       return response;
     } catch (error) {
@@ -28,6 +30,7 @@ export default function LoginForm() {
     }
   };
 
+  // Xử lý khi người dùng nhấn nút "Login"
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -35,9 +38,9 @@ export default function LoginForm() {
     try {
       const response = await login(username, password);
       console.log("Login successful:", response);
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
-      setError(error); 
+      setError(error);
     }
   };
 
@@ -49,7 +52,7 @@ export default function LoginForm() {
             <div className="px-50 py-50 md:px-25 md:py-25 bg-white shadow-1 rounded-16">
               <h3 className="text-30 lh-13">Login</h3>
               <p className="mt-10">
-                Don't have an account yet?
+                Don’t have an account yet?
                 <Link to="/signup" className="text-purple-1">Sign up for free</Link>
               </p>
 
