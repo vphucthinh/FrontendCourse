@@ -30,7 +30,7 @@ export default function LoginForm() {
     }
   };
 
-  // Xử lý khi người dùng nhấn nút "Login"
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");

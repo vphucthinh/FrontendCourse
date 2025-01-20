@@ -1,5 +1,5 @@
 export const Constants = {
-    API_URL: "http://localhost:5173", 
+    API_URL: "http://localhost:5432", 
     API_ENDPOINTS: {
       AUTH: {
         LOGIN: "api/auth/login", 
