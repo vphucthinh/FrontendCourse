@@ -13,20 +13,33 @@ export default function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
+  
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
+  
     const payload = { email, username, password };
-
+  
     try {
-      const response = await api.post(`${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.REGISTER}`, payload);
+      const response = await api.post(
+        `${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.REGISTER}`,
+        payload
+      );
       console.log("User registered successfully:", response);
       window.location.href = "/login"; 
     } catch (error) {
-      setError(error.response?.data?.message || "An unexpected error occurred.");
+      if (error.response) {
+        
+        setError(error.response.data?.message || "Server error occurred.");
+      } else if (error.request) {
+        
+        setError("No response from the server. Please check your network or try again later.");
+      } else {
+       
+        setError("An unexpected error occurred.");
+      }
+      console.error("Error during registration:", error);
     }
   };
 

@@ -120,15 +120,15 @@ export default function Context({ children }) {
   const fetchAllCourses = async () => {
     setLoading(true);
     try {
-      const response = await api.get(Constants.API_ENDPOINTS.COURSES.ALL);
-      setCourses(response);
+        const response = await api.get(`${Constants.API_URL}/${Constants.API_ENDPOINTS.COURSES.ALL}`);
+        setCourses(response.data); 
     } catch (err) {
-      console.error("Error fetching courses:", err);
-      setError(err);
+        console.error("Error fetching courses:", err);
+        setError(err);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   // Fetch a single course by ID
   const fetchCourseById = async (courseId) => {

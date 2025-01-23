@@ -23,7 +23,6 @@ export default function LoginForm() {
       localStorage.setItem("rtoken", refresh);
       sessionStorage.setItem("rtoken", refresh);
       setToken(access);
-
       return response;
     } catch (error) {
       throw error.response?.data?.message || "An unexpected error occurred.";
