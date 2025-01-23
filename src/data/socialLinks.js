@@ -5,4 +5,3 @@ export const socialMediaLinks = [
   { id: 4, href: "#", iconClassName: "icon-linkedin" },
 ];
 
-//   iconClassName are from font awesome
