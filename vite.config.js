@@ -15,7 +15,7 @@ export default defineConfig({
       '/api': {
         target: process.env.VITE_REACT_APP_SERVER_URL,
         changeOrigin: true,
-        secure: true,
+        secure: false,
         // rewrite: (path) => path.replace(/^\/api/, ''),
       },
       '/image': {

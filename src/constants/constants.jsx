@@ -1,5 +1,5 @@
 export const Constants = {
-  API_URL: "http://localhost:8080", // Chắc chắn đúng với API URL backend
+  API_URL: "http://localhost:5173", //point to frontend url then proxy will point to bakcend URL
   API_ENDPOINTS: {
     AUTH: {
       LOGIN: "api/auth/login",
