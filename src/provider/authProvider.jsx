@@ -6,7 +6,7 @@ import { apiUser } from "@/api/api";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken_] = useState(sessionStorage.getItem("token"));
+  const [atoken, setToken_] = useState(sessionStorage.getItem("atoken"));
   const [isRefreshed, setIsRefreshed] = useState(false);
 
   // Function to set token and persist in sessionStorage
@@ -14,10 +14,10 @@ const AuthProvider = ({ children }) => {
     setToken_(newToken);
     if (newToken) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + newToken;
-      sessionStorage.setItem("token", newToken); // Store token in sessionStorage
+      sessionStorage.setItem("atoken", newToken); // Store token in sessionStorage
     } else {
       delete axios.defaults.headers.common["Authorization"];
-      sessionStorage.removeItem("token"); // Remove token on logout
+      sessionStorage.removeItem("atoken"); // Remove token on logout
     }
   };
 
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     const refresh_token =
       sessionStorage.getItem("rtoken") || localStorage.getItem("rtoken");
 
-    if (!token && refresh_token) {
+    if (!atoken && refresh_token) {
       const refreshAuth = async () => {
         try {
           const response = await apiUser.post(
@@ -53,10 +53,10 @@ const AuthProvider = ({ children }) => {
     } else {
       setIsRefreshed(true); // Token is already present, no need to refresh
     }
-  }, [token]);
+  }, [atoken]);
 
   // Memoize context to avoid unnecessary re-renders
-  const contextValue = useMemo(() => ({ token, setToken, isRefreshed }), [token, isRefreshed]);
+  const contextValue = useMemo(() => ({ atoken, setToken, isRefreshed }), [atoken, isRefreshed]);
 
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };

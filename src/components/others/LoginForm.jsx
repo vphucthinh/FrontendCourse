@@ -15,17 +15,15 @@ export default function LoginForm() {
   const login = async (username, password) => {
     try {
       const response = await api.post(
-        `${Constants.API_URL}/${Constants.API_ENDPOINTS.AUTH.LOGIN}`,
+        `${Constants.API_ENDPOINTS.AUTH.LOGIN}`,
         { username, password },
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json"}}
       );
 
       // Kiểm tra trạng thái response
-      if (response.data.status === "success") {
-        const { refreshToken, accessToken } = response.data.data;
+      if (response.status === "success") {
+        const { refreshToken, accessToken } = response.data;
 
-        // Lưu token vào localStorage và sessionStorage
-        localStorage.setItem("rtoken", refreshToken);
         sessionStorage.setItem("rtoken", refreshToken);
 
         // Cập nhật token trong AuthProvider

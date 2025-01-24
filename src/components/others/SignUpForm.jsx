@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Constants } from "@/constants/constants.jsx";
 import api from "@/api/api.jsx";
+import axios from "axios";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -26,8 +27,9 @@ export default function SignUpForm() {
   
     try {
       const response = await api.post(
-        `${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.REGISTER}`,
-        payload
+        `${Constants.API_ENDPOINTS.AUTH.REGISTER}`,
+        payload,
+        {headers:{ "Content-Type": "application/json"}}
       );
       console.log("User registered successfully:", response.data);
 

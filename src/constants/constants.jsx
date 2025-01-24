@@ -1,5 +1,5 @@
 export const Constants = {
-  API_URL: "http://localhost:5173", //point to frontend url then proxy will point to bakcend URL
+  API_URL: "http://localhost:5174", //point to frontend url then proxy will point to bakcend URL
   API_ENDPOINTS: {
     AUTH: {
       LOGIN: "api/auth/login",
@@ -7,7 +7,7 @@ export const Constants = {
       REFRESH: "api/auth/refresh",
     },
     USER: {
-      PROFILE: "api/users/me",
+      PROFILE: "api/profile/",
     },
     COURSES: {
       ALL: "api/courses", 

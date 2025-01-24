@@ -3,13 +3,13 @@ import { useAuth } from "@/provider/authProvider.jsx";
 import { useEffect } from "react";
 
 export const ProtectedRoute = () => {
-  const { token, isRefreshed } = useAuth();
+  const { atoken, isRefreshed } = useAuth();
 
   // Log token and isRefreshed to check their values
   useEffect(() => {
-    console.log("Token:", token); // Log token
+    console.log("Token:", atoken); // Log token
     console.log("Is Refreshed:", isRefreshed); // Log isRefreshed
-  }, [token, isRefreshed]);
+  }, [atoken, isRefreshed]);
 
   // If not authenticated or not refreshed, show loading screen
   if (!isRefreshed) {
@@ -17,7 +17,7 @@ export const ProtectedRoute = () => {
   }
 
   // If not authenticated, redirect to login
-  if (!token) {
+  if (!atoken) {
     return <Navigate to="/login" />;
   }
 
