@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Navigate } from "react-router-dom";
 import { useAuth } from "../provider/authProvider";
 import { ProtectedRoute } from "./ProtectedRoute";
 import HomePage1 from "@/pages/index.jsx";
@@ -82,10 +82,9 @@ const Routes = () => {
     // Define public routes accessible to all users
     const routesForPublic = [
         {
-            path:"*",
-            element: <NotFoundPage />
+            path: "*",
+            element: <NotFoundPage />,
         },
-
     ];
 
     // Define routes accessible only to authenticated users
@@ -179,22 +178,26 @@ const Routes = () => {
     const routesForNotAuthenticatedOnly = [
         {
             path: "/login",
-            element: <LoginPage />
+            element: <LoginPage />,
         },
         {
-            path:"/signup",
-            element: <SignupPage />
-        }
+            path: "/signup",
+            element: <SignupPage />,
+        },
+        {
+            path: "*",
+            element: <Navigate to="/login" replace />, 
+        },
     ];
 
-    // Combine and conditionally include routes based on authentication status
+    
     const router = createBrowserRouter([
         ...routesForPublic,
         ...(!token ? routesForNotAuthenticatedOnly : []),
         ...routesForAuthenticatedOnly,
     ]);
 
-    // Provide the router configuration using RouterProvider
+
     return <RouterProvider router={router} />;
 };
 

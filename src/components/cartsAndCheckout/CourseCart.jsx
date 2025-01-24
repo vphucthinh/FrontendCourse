@@ -1,50 +1,90 @@
 import React, { useState, useEffect } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus, faX } from "@fortawesome/free-solid-svg-icons";
 import { useContextElement } from "@/context/Context";
 import { Link } from "react-router-dom";
+import api from "@/api/api.jsx";
+import { Constants } from "@/constants/constants.jsx";
 
 export default function CourseCart() {
   const { cartCourses, setCartCourses } = useContextElement();
   const [totalPrice, setTotalPrice] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const handleIncrease = (index) => {
-    const item = cartCourses[index];
-
-    item.quantity += 1;
-    const updated = [...cartCourses];
-    updated[index] == item;
-
-    setCartCourses(updated);
-  };
-  const handleDecrease = (index) => {
-    const item = cartCourses[index];
-
-    if (item.quantity > 1) {
-      item.quantity -= 1;
-      const updated = [...cartCourses];
-      updated[index] == item;
-
-      setCartCourses(updated);
+  // Fetch cart data from the backend
+  const fetchCartData = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get(Constants.API_ENDPOINTS.CART.COURSES);
+      setCartCourses(response.data);
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleRemoveCart = (index) => {
+  // Handle increase quantity
+  const handleIncrease = async (index) => {
+    const item = cartCourses[index];
+    try {
+      setLoading(true);
+      const response = await api.put(`${Constants.API_ENDPOINTS.CART.UPDATE}/${item.id}`, {
+        quantity: item.quantity + 1,
+      });
+      setCartCourses(response.data);
+    } catch (error) {
+      console.error("Error updating cart:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle decrease quantity
+  const handleDecrease = async (index) => {
     const item = cartCourses[index];
 
-    setCartCourses((pre) => [...pre.filter((elm) => elm !== item)]);
+    if (item.quantity > 1) {
+      try {
+        setLoading(true);
+        const response = await api.put(`${Constants.API_ENDPOINTS.CART.UPDATE}/${item.id}`, {
+          quantity: item.quantity - 1,
+        });
+        setCartCourses(response.data);
+      } catch (error) {
+        console.error("Error updating cart:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
   };
+
+  // Handle remove item from cart
+  const handleRemoveCart = async (index) => {
+    const item = cartCourses[index];
+    try {
+      setLoading(true);
+      const response = await api.delete(`${Constants.API_ENDPOINTS.CART.DELETE}/${item.id}`);
+      setCartCourses(response.data);
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Calculate total price
   useEffect(() => {
     const sum = cartCourses.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.discountedPrice * currentValue.quantity;
     }, 0);
     setTotalPrice(sum);
   }, [cartCourses]);
+
+  // Fetch cart data on component mount
+  useEffect(() => {
+    fetchCartData();
+  }, []);
 
   return (
     <>
@@ -56,11 +96,9 @@ export default function CourseCart() {
                 <div>
                   <h1 className="page-header__title">Course Cart</h1>
                 </div>
-
                 <div>
                   <p className="page-header__text">
-                    We’re on a mission to deliver engaging, curated courses at a
-                    reasonable price.
+                    We’re on a mission to deliver engaging, curated courses at a reasonable price.
                   </p>
                 </div>
               </div>
@@ -114,7 +152,7 @@ export default function CourseCart() {
                             className="linkCustom"
                             to={`/courses/${elm.id}`}
                           >
-                            {elm.title}{" "}
+                            {elm.title} {" "}
                           </Link>
                         </div>
                       </div>
@@ -140,14 +178,15 @@ export default function CourseCart() {
                             required
                             className="input-counter__counter"
                             type="number"
-                            placeholder="value..."
                             value={elm.quantity}
+                            readOnly
                           />
 
                           <div className="input-counter__controls">
                             <button
                               className="input-counter__up js-down"
                               onClick={() => handleDecrease(i)}
+                              disabled={loading}
                             >
                               <FontAwesomeIcon icon={faMinus} />
                             </button>
@@ -155,6 +194,7 @@ export default function CourseCart() {
                             <button
                               className="input-counter__down js-up"
                               onClick={() => handleIncrease(i)}
+                              disabled={loading}
                             >
                               <FontAwesomeIcon icon={faPlus} />
                             </button>
@@ -190,22 +230,6 @@ export default function CourseCart() {
               <div className="shopCart-footer px-16 mt-30">
                 {cartCourses.length > 0 ? (
                   <div className="row justify-between y-gap-30">
-                    <div className="col-xl-5">
-                      <form className="" onSubmit={handleSubmit}>
-                        <div className="d-flex justify-between border-dark">
-                          <input
-                            required
-                            className="rounded-8 px-25 py-20"
-                            type="text"
-                            placeholder="Coupon Code"
-                          />
-                          <button className="text-black fw-500" type="submit">
-                            Apply coupon
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-
                     <div className="col-auto">
                       <div className="shopCart-footer__item">
                         <button className="button -md -purple-3 text-purple-1">

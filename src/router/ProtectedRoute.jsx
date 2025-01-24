@@ -4,14 +4,23 @@ import { useEffect } from "react";
 
 export const ProtectedRoute = () => {
   const { token, isRefreshed } = useAuth();
-  // Check if the user is authenticated
+
+  // Log token and isRefreshed to check their values
   useEffect(() => {
-    if (!token && isRefreshed) {
-      // If not authenticated, redirect to the login page
-      return <Navigate to="/login" />;
-    }
+    console.log("Token:", token); // Log token
+    console.log("Is Refreshed:", isRefreshed); // Log isRefreshed
   }, [token, isRefreshed]);
 
-  // If authenticated, render the child routes
-  return token && isRefreshed ? <Outlet /> : <div>Loading...</div>;
+  // If not authenticated or not refreshed, show loading screen
+  if (!isRefreshed) {
+    return <div>Loading...</div>;
+  }
+
+  // If not authenticated, redirect to login
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+
+  // If authenticated, render child routes
+  return <Outlet />;
 };

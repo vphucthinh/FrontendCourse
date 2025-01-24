@@ -11,6 +11,7 @@ export default function LoginForm() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
+  // Hàm gọi API login
   const login = async (username, password) => {
     try {
       const response = await api.post(
@@ -19,27 +20,40 @@ export default function LoginForm() {
         { headers: { "Content-Type": "application/json" } }
       );
 
-      const { access, refresh } = response.data.data;
-      localStorage.setItem("rtoken", refresh);
-      sessionStorage.setItem("rtoken", refresh);
-      setToken(access);
-      return response;
+      // Kiểm tra trạng thái response
+      if (response.data.status === "success") {
+        const { refreshToken, accessToken } = response.data.data;
+
+        // Lưu token vào localStorage và sessionStorage
+        localStorage.setItem("rtoken", refreshToken);
+        sessionStorage.setItem("rtoken", refreshToken);
+
+        // Cập nhật token trong AuthProvider
+        setToken(accessToken);
+
+        return response; // Trả về response nếu cần
+      } else {
+        throw new Error(response.data.message || "Login failed.");
+      }
     } catch (error) {
-      throw error.response?.data?.message || "An unexpected error occurred.";
+      // Xử lý lỗi từ API hoặc các lỗi khác
+      const errorMessage =
+        error.response?.data?.message || "An unexpected error occurred.";
+      throw new Error(errorMessage);
     }
   };
 
-
+  // Xử lý khi submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); // Xóa lỗi cũ
 
     try {
       const response = await login(username, password);
       console.log("Login successful:", response);
-      navigate("/");
+      navigate("/"); // Chuyển hướng về trang chính
     } catch (error) {
-      setError(error);
+      setError(error.message); // Hiển thị lỗi
     }
   };
 
@@ -52,7 +66,9 @@ export default function LoginForm() {
               <h3 className="text-30 lh-13">Login</h3>
               <p className="mt-10">
                 Don’t have an account yet?
-                <Link to="/signup" className="text-purple-1">Sign up for free</Link>
+                <Link to="/signup" className="text-purple-1">
+                  Sign up for free
+                </Link>
               </p>
 
               {error && (
@@ -70,7 +86,9 @@ export default function LoginForm() {
                 onSubmit={handleSubmit}
               >
                 <div className="col-12">
-                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">Username Or Email</label>
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                    Username Or Email
+                  </label>
                   <input
                     required
                     type="text"
@@ -80,7 +98,9 @@ export default function LoginForm() {
                   />
                 </div>
                 <div className="col-12">
-                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">Password</label>
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                    Password
+                  </label>
                   <input
                     required
                     type="password"

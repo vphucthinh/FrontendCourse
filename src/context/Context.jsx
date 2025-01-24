@@ -65,6 +65,22 @@ export default function Context({ children }) {
       setCartCourses((pre) => [...pre, item]);
     }
   };
+   
+  const removeCourseFromCart = async (courseId) => {
+    try {
+      const response = await api.post(
+        `${Constants.API_URL}/${Constants.API_ENDPOINTS.CART.BASE}/remove`,
+        { courseId },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setCartCourses(response.data.cartItems);
+    } catch (err) {
+      console.error("Error removing course from cart:", err);
+    }
+  };
+
   const isAddedToCartCourses = (id) => {
     if (cartCourses.filter((elm) => elm.id == id)[0]) {
       return true;
@@ -169,6 +185,7 @@ export default function Context({ children }) {
     isAddedToCartProducts,
 
     addCourseToCart,
+    removeCourseFromCart,
     isAddedToCartCourses,
     cartCourses,
     setCartCourses,

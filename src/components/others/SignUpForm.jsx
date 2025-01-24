@@ -9,13 +9,16 @@ export default function SignUpForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setIsLoading(true); 
   
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setIsLoading(false); 
       return;
     }
   
@@ -26,22 +29,33 @@ export default function SignUpForm() {
         `${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.REGISTER}`,
         payload
       );
-      console.log("User registered successfully:", response);
-      window.location.href = "/login"; 
+      console.log("User registered successfully:", response.data);
+
+      window.location.href = "/login";
     } catch (error) {
-      if (error.response) {
-        
-        setError(error.response.data?.message || "Server error occurred.");
-      } else if (error.request) {
-        
-        setError("No response from the server. Please check your network or try again later.");
-      } else {
-       
-        setError("An unexpected error occurred.");
-      }
       console.error("Error during registration:", error);
+  
+      if (axios.isAxiosError(error)) {
+        // Kiểm tra nếu error là do Axios
+        if (error.response) {
+          // Lỗi từ phía backend
+          setError(error.response.data?.message || "Server error occurred.");
+        } else if (error.request) {
+          // Lỗi kết nối mạng hoặc server không phản hồi
+          setError("No response from the server. Please check your network or try again later.");
+        } else {
+          // Lỗi cấu hình request hoặc vấn đề khác
+          setError("An unexpected error occurred.");
+        }
+      } else {
+        // Lỗi không phải từ Axios
+        setError("An unknown error occurred.");
+      }
+    } finally {
+      setIsLoading(false); // Dừng trạng thái loading sau khi xử lý xong
     }
   };
+  
 
   return (
     <div className="form-page__content lg:py-50">
@@ -51,10 +65,13 @@ export default function SignUpForm() {
             <div className="px-50 py-50 md:px-25 md:py-25 bg-white shadow-1 rounded-16">
               <h3 className="text-30 lh-13">Sign Up</h3>
               <p className="mt-10">
-                Already have an account? 
-                <Link to="/login" className="text-purple-1">Log in</Link>
+                Already have an account?{" "}
+                <Link to="/login" className="text-purple-1">
+                  Log in
+                </Link>
               </p>
 
+          
               {error && (
                 <div className="row y-gap-20">
                   <div className="col-12">
@@ -121,8 +138,9 @@ export default function SignUpForm() {
                   <button
                     type="submit"
                     className="button -md -green-1 text-dark-1 fw-500 w-1/1"
+                    disabled={isLoading} // Vô hiệu hóa khi đang loading
                   >
-                    Register
+                    {isLoading ? "Registering..." : "Register"}
                   </button>
                 </div>
               </form>
