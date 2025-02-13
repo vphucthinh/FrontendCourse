@@ -38,23 +38,23 @@ export default function SignUpForm() {
       console.error("Error during registration:", error);
   
       if (axios.isAxiosError(error)) {
-        // Kiểm tra nếu error là do Axios
+        
         if (error.response) {
-          // Lỗi từ phía backend
+          
           setError(error.response.data?.message || "Server error occurred.");
         } else if (error.request) {
-          // Lỗi kết nối mạng hoặc server không phản hồi
+          
           setError("No response from the server. Please check your network or try again later.");
         } else {
-          // Lỗi cấu hình request hoặc vấn đề khác
+          
           setError("An unexpected error occurred.");
         }
       } else {
-        // Lỗi không phải từ Axios
+       
         setError("An unknown error occurred.");
       }
     } finally {
-      setIsLoading(false); // Dừng trạng thái loading sau khi xử lý xong
+      setIsLoading(false); 
     }
   };
   

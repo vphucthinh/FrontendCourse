@@ -11,7 +11,7 @@ export default function LoginForm() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
-  // Hàm gọi API login
+
   const login = async (username, password) => {
     try {
       const response = await api.post(
@@ -20,38 +20,38 @@ export default function LoginForm() {
         { headers: { "Content-Type": "application/json"}}
       );
 
-      // Kiểm tra trạng thái response
+     
       if (response.status === "success") {
         const { refreshToken, accessToken } = response.data;
 
         sessionStorage.setItem("rtoken", refreshToken);
 
-        // Cập nhật token trong AuthProvider
+      
         setToken(accessToken);
 
-        return response; // Trả về response nếu cần
+        return response; 
       } else {
         throw new Error(response.data.message || "Login failed.");
       }
     } catch (error) {
-      // Xử lý lỗi từ API hoặc các lỗi khác
+    
       const errorMessage =
         error.response?.data?.message || "An unexpected error occurred.";
       throw new Error(errorMessage);
     }
   };
 
-  // Xử lý khi submit form
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Xóa lỗi cũ
+    setError(""); 
 
     try {
       const response = await login(username, password);
       console.log("Login successful:", response);
-      navigate("/"); // Chuyển hướng về trang chính
+      navigate("/"); 
     } catch (error) {
-      setError(error.message); // Hiển thị lỗi
+      setError(error.message); 
     }
   };
 

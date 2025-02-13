@@ -2,7 +2,7 @@ export const contactData = [
   {
     id: 1,
     icon: "/assets/img/contact-1/1.svg",
-    address: "328 Queensberry Street, North Melbourne VIC 3051, Australia.",
+    address: "Thu Duc District",
   },
   {
     id: 2,
@@ -12,6 +12,6 @@ export const contactData = [
   {
     id: 3,
     icon: "/assets/img/contact-1/3.svg",
-    email: "hi@educrat.com",
+    email: "hello@education.com",
   },
 ];

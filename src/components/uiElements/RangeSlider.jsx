@@ -19,7 +19,7 @@ export default function RangeSlider() {
             onChange={handleChange}
             valueLabelDisplay="auto"
             max={2000}
-            min={200}
+            min={200} 
             disableSwap
           />
         </div>

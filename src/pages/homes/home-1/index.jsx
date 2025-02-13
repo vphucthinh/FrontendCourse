@@ -3,7 +3,6 @@ import Header from "@/components/layout/headers/Header";
 // import MobileMenu from "@/components/layout/component/MobileMenu";
 
 import HomeHero from "@/components/homes/heros/HomeHero";
-
 import Brands from "@/components/common/Brands";
 import Categories from "@/components/homes/categories/Categories";
 import Courses from "@/components/homes/courses/Courses";

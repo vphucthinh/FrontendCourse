@@ -1,7 +1,7 @@
 export const students = [
   {
     id: 1,
-    imgSrc: "/assets/img/home-2/students/1.png",
+    imgSrc: "/assets/img/home-2/students/Brooklyn_Simmons.jpg",
     name: "Brooklyn Simmons",
     title: "Web Designer",
     socials: [
@@ -15,7 +15,7 @@ export const students = [
   },
   {
     id: 2,
-    imgSrc: "/assets/img/home-2/students/2.png",
+    imgSrc: "/assets/img/home-2/students/Cody_fisher.png",
     name: "Cody Fisher",
     title: "Dog Trainer",
     socials: [
@@ -29,7 +29,7 @@ export const students = [
   },
   {
     id: 3,
-    imgSrc: "/assets/img/home-2/students/3.png",
+    imgSrc: "/assets/img/home-2/students/marvin.png",
     name: "Marvin McKinney",
     title: "President of Sales",
     socials: [
@@ -43,7 +43,7 @@ export const students = [
   },
   {
     id: 4,
-    imgSrc: "/assets/img/home-2/students/4.png",
+    imgSrc: "/assets/img/home-2/students/Jane_cooper.png",
     name: "Jane Cooper",
     title: "Marketing Coordinator",
     socials: [
@@ -57,7 +57,7 @@ export const students = [
   },
   {
     id: 5,
-    imgSrc: "/assets/img/home-2/students/5.png",
+    imgSrc: "/assets/img/home-2/students/Ali_tufan.png",
     name: "Ali Tufan",
     title: "Marketing Coordinator",
     socials: [

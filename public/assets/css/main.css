@@ -2757,6 +2757,7 @@ input[type="email"] {
 form.contact-form select,
 form.contact-form input[type="text"],
 form.contact-form input[type="password"],
+form.contact-form input[type="number"],
 form.contact-form input[type="search"],
 form.contact-form textarea,
 form.contact-form input[type="email"] {

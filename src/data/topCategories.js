@@ -46,7 +46,7 @@ export const topCategories = [
 export const topCategoriesTwo = [
   {
     id: 1,
-    imageSrc: "/assets/img/home-3/category/1.png",
+    imageSrc: "/assets/img/home-3/category/digital_marketing.png",
     title: "Digital Marketing",
     text: "573+ Courses",
   },
@@ -96,43 +96,43 @@ export const topCategoriesTwo = [
 export const topCatagoriesThree = [
   {
     id: 1,
-    imageSrc: "/assets/img/home-2/categories/1.png",
+    imageSrc: "/assets/img/home-2/categories/digital_marketing.png",
     title: "Digital Marketing",
     courses: "573+ Courses",
   },
   {
     id: 2,
-    imageSrc: "/assets/img/home-2/categories/2.png",
+    imageSrc: "/assets/img/home-2/categories/web_develop.png",
     title: "Web Development",
     courses: "473+ Courses",
   },
   {
     id: 3,
-    imageSrc: "/assets/img/home-2/categories/3.png",
+    imageSrc: "/assets/img/home-2/categories/graphic_design.png",
     title: "Graphic Design",
     courses: "583+ Courses",
   },
   {
     id: 4,
-    imageSrc: "/assets/img/home-2/categories/4.png",
+    imageSrc: "/assets/img/home-2/categories/social_science.png",
     title: "Social Sciences",
     courses: "373+ Courses",
   },
   {
     id: 5,
-    imageSrc: "/assets/img/home-2/categories/5.png",
+    imageSrc: "/assets/img/home-2/categories/personal_deve.png",
     title: "Personal Development",
     courses: "373+ Courses",
   },
   {
     id: 6,
-    imageSrc: "/assets/img/home-2/categories/6.png",
+    imageSrc: "/assets/img/home-2/categories/photography.png",
     title: "Photography",
     courses: "393+ Courses",
   },
   {
     id: 7,
-    imageSrc: "/assets/img/home-2/categories/7.png",
+    imageSrc: "/assets/img/home-2/categories/arts-humanities.png",
     title: "Arts and Humanities",
     courses: "373+ Courses",
   },

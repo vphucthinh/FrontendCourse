@@ -22,7 +22,7 @@ export const learnList = [
 export const reviews = [
   {
     id: 1,
-    avatarSrc: "/assets/img/avatars/1.png",
+    avatarSrc: "/assets/img/avatars/ali_tufan.png",
     name: "Ali Tufan",
     date: "3 Days ago",
     rating: 5,
@@ -32,7 +32,7 @@ export const reviews = [
   },
   {
     id: 2,
-    avatarSrc: "/assets/img/avatars/1.png",
+    avatarSrc: "/assets/img/avatars/ali_tufan.png",
     name: "Ali Tufan",
     date: "3 Days ago",
     rating: 5,
@@ -42,7 +42,7 @@ export const reviews = [
   },
   {
     id: 3,
-    avatarSrc: "/assets/img/avatars/1.png",
+    avatarSrc: "/assets/img/avatars/ali_tufan.png",
     name: "Ali Tufan",
     date: "3 Days ago",
     rating: 5,

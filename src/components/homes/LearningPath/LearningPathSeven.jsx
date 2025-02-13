@@ -52,11 +52,11 @@ export default function LearningPathSeven() {
           <div className="col-lg-6 order-1 order-lg-2">
             <div className="composition -type-5">
               <div className="-el-1">
-                <img src="/assets/img/home-7/about/1.png" alt="image" />
+                <img src="/assets/img/home-7/about/graphic_design.png" alt="image" />
               </div>
 
               <div className="-el-2">
-                <img src="/assets/img/home-7/about/2.png" alt="image" />
+                <img src="/assets/img/home-7/about/web.png" alt="image" />
               </div>
 
               <div className="-el-3">
