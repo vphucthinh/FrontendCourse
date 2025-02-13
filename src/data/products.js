@@ -1,7 +1,7 @@
 export const productData = [
   {
     id: 1,
-    image: "/assets/img/shop/products/1.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 500,
@@ -9,7 +9,7 @@ export const productData = [
   },
   {
     id: 2,
-    image: "/assets/img/shop/products/2.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 1000,
@@ -17,7 +17,7 @@ export const productData = [
   },
   {
     id: 3,
-    image: "/assets/img/shop/products/3.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 750,
@@ -25,7 +25,7 @@ export const productData = [
   },
   {
     id: 4,
-    image: "/assets/img/shop/products/4.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 200,
@@ -33,7 +33,7 @@ export const productData = [
   },
   {
     id: 5,
-    image: "/assets/img/shop/products/5.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 1800,
@@ -41,7 +41,7 @@ export const productData = [
   },
   {
     id: 6,
-    image: "/assets/img/shop/products/6.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 950,
@@ -49,7 +49,7 @@ export const productData = [
   },
   {
     id: 7,
-    image: "/assets/img/shop/products/7.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 1300,
@@ -57,7 +57,7 @@ export const productData = [
   },
   {
     id: 8,
-    image: "/assets/img/shop/products/8.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 2000,
@@ -65,7 +65,7 @@ export const productData = [
   },
   {
     id: 9,
-    image: "/assets/img/shop/products/9.png",
+    image: "/assets/img/shop/products/brown_clock.png",
     categories: ["Clothing", "Glasses", "T-Shirts"],
     name: "Wall Clock Brown",
     price: 400,

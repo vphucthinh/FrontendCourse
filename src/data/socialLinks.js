@@ -4,4 +4,3 @@ export const socialMediaLinks = [
   { id: 3, href: "#", iconClassName: "icon-instagram" },
   { id: 4, href: "#", iconClassName: "icon-linkedin" },
 ];
-

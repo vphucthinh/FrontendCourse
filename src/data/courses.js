@@ -1,7 +1,7 @@
 export const coursesData = [
   {
     id: 1,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/Figma.jpg",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Learn Figma - UI/UX Design Essential Training",
     rating: 4.3,
@@ -22,7 +22,7 @@ export const coursesData = [
   },
   {
     id: 2,
-    imageSrc: "/assets/img/coursesCards/9.png",
+    imageSrc: "/assets/img/coursesCards/Python.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Complete Python Bootcamp From Zero to Hero in Python",
     rating: 4.7,
@@ -46,7 +46,7 @@ export const coursesData = [
   },
   {
     id: 3,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/Angular.jpg",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Angular - The Complete Guide (2022 Edition)",
     rating: 4.5,
@@ -67,7 +67,7 @@ export const coursesData = [
   },
   {
     id: 4,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "/assets/img/coursesCards/Drawing.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "The Ultimate Drawing Course Beginner to Advanced",
     rating: 4.2,
@@ -88,7 +88,7 @@ export const coursesData = [
   },
   {
     id: 5,
-    imageSrc: "/assets/img/coursesCards/11.png",
+    imageSrc: "/assets/img/coursesCards/Photograph.jpg",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Photography Masterclass: A Complete Guide to Photography",
     rating: 3.8,
@@ -109,7 +109,7 @@ export const coursesData = [
   },
   {
     id: 6,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "/assets/img/coursesCards/3d_modelling.png",
     imageAlt: "image",
     rating: 4.6,
     ratingCount: 1991,
@@ -131,7 +131,7 @@ export const coursesData = [
   },
   {
     id: 7,
-    imageSrc: "/assets/img/coursesCards/7.png",
+    imageSrc: "/assets/img/coursesCards/FA.jpg",
     imageAlt: "image",
     rating: 3.5,
     ratingCount: 1991,
@@ -153,7 +153,7 @@ export const coursesData = [
   },
   {
     id: 8,
-    imageSrc: "/assets/img/coursesCards/5.png",
+    imageSrc: "/assets/img/coursesCards/Photograph.jpg",
     imageAlt: "image",
     rating: 4.8,
     ratingCount: 1991,
@@ -175,7 +175,7 @@ export const coursesData = [
   },
   {
     id: 9,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/Python.png",
     imageAlt: "image",
     rating: 3.9,
     ratingCount: 1991,
@@ -197,7 +197,7 @@ export const coursesData = [
   },
   {
     id: 10,
-    imageSrc: "/assets/img/coursesCards/5.png",
+    imageSrc: "/assets/img/coursesCards/Angular.jpg",
     imageAlt: "image",
     rating: 4.2,
     ratingCount: 1991,
@@ -219,7 +219,7 @@ export const coursesData = [
   },
   {
     id: 11,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "/assets/img/coursesCards/html.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -241,7 +241,7 @@ export const coursesData = [
   },
   {
     id: 12,
-    imageSrc: "/assets/img/coursesCards/4.png",
+    imageSrc: "/assets/img/coursesCards/drawing_ultimate.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -263,7 +263,7 @@ export const coursesData = [
   },
   {
     id: 13,
-    imageSrc: "/assets/img/coursesCards/10.png",
+    imageSrc: "/assets/img/coursesCards/javascript.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Advanced JavaScript: Exploring ES6 and Beyond",
     rating: 4.3,
@@ -284,7 +284,7 @@ export const coursesData = [
   },
   {
     id: 14,
-    imageSrc: "/assets/img/coursesCards/8.png",
+    imageSrc: "/assets/img/coursesCards/python_DA.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Python for Data Analysis: NumPy, Pandas, and Matplotlib",
     rating: 4.7,
@@ -308,7 +308,7 @@ export const coursesData = [
   },
   {
     id: 15,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/bootstrap.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Building Responsive Websites with Bootstrap 5",
     rating: 4.5,
@@ -329,7 +329,7 @@ export const coursesData = [
   },
   {
     id: 16,
-    imageSrc: "/assets/img/coursesCards/7.png",
+    imageSrc: "/assets/img/coursesCards/social_marketing.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Social Media Marketing: Strategies for Growing Your Audience",
     rating: 4.2,
@@ -350,7 +350,7 @@ export const coursesData = [
   },
   {
     id: 17,
-    imageSrc: "/assets/img/coursesCards/10.png",
+    imageSrc: "/assets/img/coursesCards/landscape.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Landscape Photography: Capturing Nature's Beauty",
     rating: 3.8,
@@ -371,7 +371,7 @@ export const coursesData = [
   },
   {
     id: 18,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "/assets/img/coursesCards/unity_3d.png",
     imageAlt: "image",
     rating: 4.6,
     ratingCount: 1991,
@@ -393,7 +393,7 @@ export const coursesData = [
   },
   {
     id: 19,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "/assets/img/coursesCards/personal-finance.png",
     imageAlt: "image",
     rating: 3.5,
     ratingCount: 1991,
@@ -415,7 +415,7 @@ export const coursesData = [
   },
   {
     id: 20,
-    imageSrc: "/assets/img/coursesCards/4.png",
+    imageSrc: "/assets/img/coursesCards/graphic_design.png",
     imageAlt: "image",
     rating: 4.8,
     ratingCount: 1991,
@@ -437,7 +437,7 @@ export const coursesData = [
   },
   {
     id: 21,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "/assets/img/coursesCards/node_express.png",
     imageAlt: "image",
     rating: 3.9,
     ratingCount: 1991,
@@ -459,7 +459,7 @@ export const coursesData = [
   },
   {
     id: 22,
-    imageSrc: "/assets/img/coursesCards/4.png",
+    imageSrc: "/assets/img/coursesCards/android.png",
     imageAlt: "image",
     rating: 4.2,
     ratingCount: 1991,
@@ -481,7 +481,7 @@ export const coursesData = [
   },
   {
     id: 23,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/ML_python.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -503,7 +503,7 @@ export const coursesData = [
   },
   {
     id: 24,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/creative_writing.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -525,7 +525,7 @@ export const coursesData = [
   },
   {
     id: 25,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "/assets/img/coursesCards/html_css_js.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Front-End Web Development: HTML, CSS, and JavaScript Fundamentals",
     rating: 4.3,
@@ -546,7 +546,7 @@ export const coursesData = [
   },
   {
     id: 26,
-    imageSrc: "/assets/img/coursesCards/10.png",
+    imageSrc: "/assets/img/coursesCards/Tableau-Visualization.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Data Visualization with Tableau: Creating Informative Dashboards",
     rating: 4.7,
@@ -570,7 +570,7 @@ export const coursesData = [
   },
   {
     id: 27,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/digital_illustration.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Digital Illustration: Bringing Your Imagination to Life",
     rating: 4.5,
@@ -591,7 +591,7 @@ export const coursesData = [
   },
   {
     id: 28,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/java_ee.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Java Enterprise Edition (EE): Building Scalable Web Applications",
     rating: 4.2,
@@ -612,7 +612,7 @@ export const coursesData = [
   },
   {
     id: 29,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/ios_app.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "iOS App Design: User Interface and User Experience (UI/UX)",
     rating: 3.8,
@@ -633,7 +633,7 @@ export const coursesData = [
   },
   {
     id: 30,
-    imageSrc: "/assets/img/coursesCards/9.png",
+    imageSrc: "/assets/img/coursesCards/intro_to_Ai.png",
     imageAlt: "image",
     rating: 4.6,
     ratingCount: 1991,
@@ -655,7 +655,7 @@ export const coursesData = [
   },
   {
     id: 31,
-    imageSrc: "/assets/img/coursesCards/7.png",
+    imageSrc: "/assets/img/coursesCards/adobe_premiere.png",
     imageAlt: "image",
     rating: 3.5,
     ratingCount: 1991,
@@ -677,7 +677,7 @@ export const coursesData = [
   },
   {
     id: 32,
-    imageSrc: "/assets/img/coursesCards/9.png",
+    imageSrc: "/assets/img/coursesCards/cyber_ess.png",
     imageAlt: "image",
     rating: 4.8,
     ratingCount: 1991,
@@ -699,7 +699,7 @@ export const coursesData = [
   },
   {
     id: 33,
-    imageSrc: "/assets/img/coursesCards/10.png",
+    imageSrc: "/assets/img/coursesCards/photo_post_pro.png",
     imageAlt: "image",
     rating: 3.9,
     ratingCount: 1991,
@@ -721,7 +721,7 @@ export const coursesData = [
   },
   {
     id: 34,
-    imageSrc: "/assets/img/coursesCards/12.png",
+    imageSrc: "/assets/img/coursesCards/full_stack_web.png",
     imageAlt: "image",
     rating: 4.2,
     ratingCount: 1991,
@@ -744,7 +744,7 @@ export const coursesData = [
   },
   {
     id: 35,
-    imageSrc: "/assets/img/coursesCards/6.png",
+    imageSrc: "/assets/img/coursesCards/content_marketing.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -766,7 +766,7 @@ export const coursesData = [
   },
   {
     id: 36,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "/assets/img/coursesCards/widlife_photo.png",
     imageAlt: "image",
     rating: 5,
     ratingCount: 1991,
@@ -788,7 +788,7 @@ export const coursesData = [
   },
   {
     id: 37,
-    imageSrc: "/assets/img/coursesCards/12.png",
+    imageSrc: "/assets/img/coursesCards/game_and_story.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title:
       "Game Design and Storytelling: Creating Immersive Gaming Experiences",
@@ -810,7 +810,7 @@ export const coursesData = [
   },
   {
     id: 38,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "/assets/img/coursesCards/retire.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Financial Planning for Retirement: Securing Your Golden Years",
     rating: 4.7,
@@ -834,7 +834,7 @@ export const coursesData = [
   },
   {
     id: 39,
-    imageSrc: "/assets/img/coursesCards/11.png",
+    imageSrc: "/assets/img/coursesCards/ui_ux_design.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title:
       "User Interface (UI) Design Fundamentals: Principles and Best Practices",
@@ -856,7 +856,7 @@ export const coursesData = [
   },
   {
     id: 40,
-    imageSrc: "/assets/img/coursesCards/8.png",
+    imageSrc: "/assets/img/coursesCards/python_web_scrapping.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Python Web Scraping: Extracting Data from Websites",
     rating: 4.2,
@@ -877,7 +877,7 @@ export const coursesData = [
   },
   {
     id: 41,
-    imageSrc: "/assets/img/coursesCards/3.png",
+    imageSrc: "/assets/img/coursesCards/digital_marketing.png",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Digital Marketing Analytics: Measuring and Optimizing Campaigns",
     rating: 3.8,
@@ -898,7 +898,7 @@ export const coursesData = [
   },
   {
     id: 42,
-    imageSrc: "/assets/img/coursesCards/11.png",
+    imageSrc: "/assets/img/coursesCards/adobe_illustrator.png",
     imageAlt: "image",
     rating: 4.6,
     ratingCount: 1991,
@@ -920,7 +920,7 @@ export const coursesData = [
   },
   {
     id: 43,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "/assets/img/coursesCards/ruby.png",
     imageAlt: "image",
     rating: 3.5,
     ratingCount: 1991,
@@ -960,7 +960,7 @@ export const viewStatus = ["All", "Great", "Good", "Medium", "Low"];
 export const resentCourses = [
   {
     id: 1,
-    imageSrc: "/assets/img/dashboard/recent-courses/1.png",
+    imageSrc: "/assets/img/dashboard/recent-courses/python_bootcamp.png",
     title: "Complete Python Bootcamp From Zero to Hero in Python",
     author: "Ali Tufan",
     authorImg: `/assets/img/general/avatar-1.png`,
@@ -969,7 +969,7 @@ export const resentCourses = [
   },
   {
     id: 2,
-    imageSrc: "/assets/img/dashboard/recent-courses/2.png",
+    imageSrc: "/assets/img/dashboard/recent-courses/drawing.png",
     title: "The Ultimate Drawing Course Beginner to Advanced",
     author: "Ali Tufan",
     authorImg: `/assets/img/general/avatar-1.png`,
@@ -978,7 +978,7 @@ export const resentCourses = [
   },
   {
     id: 3,
-    imageSrc: "/assets/img/dashboard/recent-courses/3.png",
+    imageSrc: "/assets/img/dashboard/recent-courses/instagram.png",
     title: "Instagram Marketing 2021: Complete Guide To Instagram Growth",
     author: "Ali Tufan",
     authorImg: `/assets/img/general/avatar-1.png`,

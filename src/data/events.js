@@ -1,7 +1,7 @@
 export const events = [
   {
     id: 1,
-    imgSrc: "/assets/img/courses-list/1.png",
+    imgSrc: "/assets/img/courses-list/summer_school.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -12,7 +12,7 @@ export const events = [
   },
   {
     id: 2,
-    imgSrc: "/assets/img/courses-list/2.png",
+    imgSrc: "/assets/img/courses-list/summer_school2.jpg",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -23,7 +23,7 @@ export const events = [
   },
   {
     id: 3,
-    imgSrc: "/assets/img/courses-list/3.png",
+    imgSrc: "/assets/img/courses-list/summer_school3.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -34,7 +34,7 @@ export const events = [
   },
   {
     id: 4,
-    imgSrc: "/assets/img/courses-list/4.png",
+    imgSrc: "/assets/img/courses-list/insight.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -45,7 +45,7 @@ export const events = [
   },
   {
     id: 5,
-    imgSrc: "/assets/img/courses-list/5.png",
+    imgSrc: "/assets/img/courses-list/Educational_technology.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -56,7 +56,7 @@ export const events = [
   },
   {
     id: 6,
-    imgSrc: "/assets/img/courses-list/6.png",
+    imgSrc: "/assets/img/courses-list/The_world.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -67,7 +67,7 @@ export const events = [
   },
   {
     id: 7,
-    imgSrc: "/assets/img/courses-list/7.png",
+    imgSrc: "/assets/img/courses-list/The_world.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -78,7 +78,7 @@ export const events = [
   },
   {
     id: 8,
-    imgSrc: "/assets/img/courses-list/8.png",
+    imgSrc: "/assets/img/courses-list/The_world.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",
@@ -89,7 +89,7 @@ export const events = [
   },
   {
     id: 9,
-    imgSrc: "/assets/img/courses-list/9.png",
+    imgSrc: "/assets/img/courses-list/The_world.png",
     title: "Summer School 2022",
     date: "6 April, 2022",
     location: "London, UK",

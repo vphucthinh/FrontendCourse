@@ -9,7 +9,7 @@ export default function BecomeInstactor() {
           <div className="col-xl-5 offset-xl-1 col-lg-6">
             <img
               className="w-1/1"
-              src="/assets/img/home-2/about/1.png"
+              src="/assets/img/home-2/about/instructor.png"
               alt="image"
             />
           </div>

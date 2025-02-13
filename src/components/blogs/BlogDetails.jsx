@@ -118,14 +118,14 @@ export default function BlogDetails({ id }) {
                   <div className="row y-gap-30 pt-30">
                     <div className="col-sm-6">
                       <img
-                        src="/assets/img/blog/blog-single/1.png"
+                        src="/assets/img/blog/blog-single/image_website.png"
                         alt="image"
                         className="w-1/1 initial-img rounded-8"
                       />
                     </div>
                     <div className="col-sm-6">
                       <img
-                        src="/assets/img/blog/blog-single/2.png"
+                        src="/assets/img/blog/blog-single/Cyber.png"
                         alt="image"
                         className="w-1/1 initial-img rounded-8"
                       />

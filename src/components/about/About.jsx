@@ -30,13 +30,13 @@ export default function About() {
             <div className="col-lg-6 pr-50 sm:pr-15">
               <div className="composition -type-8">
                 <div className="-el-1">
-                  <img src="/assets/img/about-1/1.png" alt="image" />
+                  <img src="/assets/img/about-1/designer.png" alt="image" />
                 </div>
                 <div className="-el-2">
-                  <img src="/assets/img/about-1/2.png" alt="image" />
+                  <img src="/assets/img/about-1/marketing.png" alt="image" />
                 </div>
                 <div className="-el-3">
-                  <img src="/assets/img/about-1/3.png" alt="image" />
+                  <img src="/assets/img/about-1/web.png" alt="image" />
                 </div>
               </div>
             </div>

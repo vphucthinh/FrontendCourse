@@ -75,9 +75,10 @@ import HomePage7 from "@/pages/homes/home-7/index.jsx";
 import HomePage8 from "@/pages/homes/home-8/index.jsx";
 import HomePage9 from "@/pages/homes/home-9/index.jsx";
 import HomePage10 from "@/pages/homes/home-10/index.jsx";
+import Logout from "@/components/others/logout.jsx";
 
 const Routes = () => {
-    const { token } = useAuth();
+    const { atoken } = useAuth();
 
     // Define public routes accessible to all users
     const routesForPublic = [
@@ -94,16 +95,16 @@ const Routes = () => {
             element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
             children: [
                 { path: "/", element: <HomePage1 /> },
-                { path: "home-2", element: <HomePage2 /> },
-                { path: "home-3", element: <HomePage3 /> },
-                { path: "home-4", element: <HomePage4 /> },
-                { path: "home-5", element: <HomePage5 /> },
-                { path: "home-6", element: <HomePage6 /> },
-                { path: "home-7", element: <HomePage7 /> },
-                { path: "home-8", element: <HomePage8 /> },
-                { path: "home-9", element: <HomePage9 /> },
-                { path: "home-10", element: <HomePage10 /> },
-                { path: "logout", element: <div>Logout</div> },
+                // { path: "home-2", element: <HomePage2 /> },
+                // { path: "home-3", element: <HomePage3 /> },
+                // { path: "home-4", element: <HomePage4 /> },
+                // { path: "home-5", element: <HomePage5 /> },
+                // { path: "home-6", element: <HomePage6 /> },
+                // { path: "home-7", element: <HomePage7 /> },
+                // { path: "home-8", element: <HomePage8 /> },
+                // { path: "home-9", element: <HomePage9 /> },
+                // { path: "home-10", element: <HomePage10 /> },
+                { path: "logout", element: <Logout /> }, // Use the Logout component
                 { path: "courses-list-1", element: <CourseListPage1 /> },
                 { path: "courses-list-2", element: <CourseListPage2 /> },
                 { path: "courses-list-3", element: <CourseListPage3 /> },
@@ -193,7 +194,7 @@ const Routes = () => {
     
     const router = createBrowserRouter([
         ...routesForPublic,
-        ...(!token ? routesForNotAuthenticatedOnly : []),
+        ...(!atoken ? routesForNotAuthenticatedOnly : []),
         ...routesForAuthenticatedOnly,
     ]);
 

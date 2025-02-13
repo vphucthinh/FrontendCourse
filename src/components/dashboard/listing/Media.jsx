@@ -123,7 +123,7 @@ export default function Media() {
                 </div>
               </form>
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <form
                 onSubmit={handleSubmit}
                 className="contact-form d-flex lg:flex-column"
@@ -201,19 +201,7 @@ export default function Media() {
                   </p>
                 </div>
               </form>
-            </div>
-          </div>
-
-          <div className="row y-gap-20 justify-between pt-30">
-            <div className="col-auto">
-              <button className="button -md -outline-purple-1 text-purple-1">
-                Prev
-              </button>
-            </div>
-
-            <div className="col-auto">
-              <button className="button -md -purple-1 text-white">Next</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -120,7 +120,7 @@ export default function Context({ children }) {
 
     setLoadingProfile(true);
     try {
-      const response = await api.get(Constants.API_ENDPOINTS.USER.PROFILE);
+      const response = await api.get( `${Constants.API_ENDPOINTS.USER.BASE}`);
       console.log(response)
       setProfile(response); // Set the profile data
       setProfilePic(response?.avatar || null); // Set the profile picture
@@ -136,7 +136,7 @@ export default function Context({ children }) {
   const fetchAllCourses = async () => {
     setLoading(true);
     try {
-        const response = await api.get(`${Constants.API_URL}/${Constants.API_ENDPOINTS.COURSES.ALL}`);
+        const response = await api.get(`${Constants.API_ENDPOINTS.COURSES.ALL}`);
         setCourses(response.data); 
     } catch (err) {
         console.error("Error fetching courses:", err);

@@ -1,7 +1,7 @@
 export const testimonials = [
   {
     id: 0,
-    imageSrc: "/assets/img/testimonials/1.png",
+    imageSrc: "/assets/img/testimonials/Courtney_Henry.jpg",
     name: "Courtney Henry",
     position: "Web Designer",
     comment: "Great Work",
@@ -12,7 +12,7 @@ export const testimonials = [
   },
   {
     id: 1,
-    imageSrc: "/assets/img/testimonials/2.png",
+    imageSrc: "/assets/img/testimonials/Ronald_Richard.jpg",
     name: "Ronald Richards",
     position: "President of Sales",
     comment: "Great Work",
@@ -23,7 +23,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    imageSrc: "/assets/img/testimonials/3.png",
+    imageSrc: "/assets/img/testimonials/Annette_Black.jpg",
     name: "Annette Black",
     position: "Nursing Assistant",
     comment: "Great Work",
@@ -34,7 +34,7 @@ export const testimonials = [
   },
   {
     id: 3,
-    imageSrc: "/assets/img/testimonials/4.png",
+    imageSrc: "/assets/img/testimonials/Courtney_Henry.jpg",
     name: "Courtney Henry",
     position: "Web Designer",
     comment: "Great Work",
@@ -80,11 +80,11 @@ export const testimonialsTwo = [
 ];
 
 export const paginationImages = [
-  "/assets/img/home-3/testimonials/1.png",
-  "/assets/img/home-3/testimonials/2.png",
-  "/assets/img/home-3/testimonials/3.png",
-  "/assets/img/home-3/testimonials/4.png",
-  "/assets/img/home-3/testimonials/5.png",
+  "/assets/img/home-3/testimonials/Ali_Tufan.png",
+  "/assets/img/home-3/testimonials/John_Smith.png",
+  "/assets/img/home-3/testimonials/Emily_Johnson.png",
+  "/assets/img/home-3/testimonials/David_Brown.png",
+  "/assets/img/home-3/testimonials/Sarah_Thompson.png",
 ];
 
 export const testimonialsTwoFour = [

@@ -2,64 +2,39 @@ import React, { useState, useEffect } from "react";
 import { useContextElement } from "@/context/Context";
 import { Link } from "react-router-dom";
 import api from "@/api/api";
+import { Constants } from "@/constants/constants";
 export default function CourseCheckOut() {
   const { cartCourses, setCartCourses } = useContextElement();
   const [totalPrice, setTotalPrice] = useState(0);
-  // const [shiping, setShiping] = useState(0);
-  useEffect(() => {
-    const sum = cartCourses.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.discountedPrice * currentValue.quantity;
-    }, 0);
-    // const sumQuantity = cartCourses.reduce((accumulator, currentValue) => {
-    //   return accumulator + currentValue.quantity;
-    // }, 0);
-    // setShiping(sumQuantity * 10);
-    setTotalPrice(sum);
-  }, [cartCourses]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTimeout(async () => {
-      let body = new FormData();
-      body.append("order_type", "topup");
-      body.append("order_id", Math.random().toString(36).substr(2, 9));
-      body.append("amount", totalPrice * 1000);
-      body.append("order_desc", "Course Purchase");
-      body.append("bank_code", "");
-      body.append("language", "en");
-      body.append("course", "test");
-      // body.append("csrfmiddlewaretoken", );
-      try {
-        const res = await api.post("/payment/", body, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Cookie: "csrftoken=" + document.cookie.split("=")[1],
-            "X-CSRFToken": document.cookie.split("=")[1],
-          },
-        });
-        if (res.url) {
-          window.location.href = res.url;
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }, 1000);
-  };
 
   useEffect(() => {
-    const currentPath = window.location.pathname;
-    console.log(currentPath);
-    if (currentPath === "/course-checkout/") {
-      let params = window.location.href.split("?");
-      if (params.length > 1) {
-        let param = params[1].split("&");
-        let title = param[0].split("=")[1];
-        let result = param[1].split("=")[1];
-        alert(decodeURIComponent(title) + "\n" + decodeURIComponent(result));
-        setCartCourses([]);
-        window.location.href = "/courses";
+    const sum = cartCourses.reduce((accumulator, course) => {
+      return accumulator + course.discountedPrice * course.quantity;
+    }, 0);
+    setTotalPrice(sum);
+  }, [cartCourses]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userName = "exampleUser"; // Replace with the actual username
+  
+    const checkoutRequest = {
+      courseIds: cartCourses.map((course) => course.id),
+      currency: "VND",
+    };
+  
+    try {
+      const url = `${Constants.API_URL}/${Constants.API_ENDPOINTS.CHECKOUT.STRIPE_SESSION(userName)}`;
+      const response = await api.post(url, checkoutRequest);
+  
+      if (response.data?.checkoutUrl) {
+        window.location.href = response.data.checkoutUrl; // Redirect to Stripe session
       }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+      alert("Error during checkout. Please try again.");
     }
-  }, []);
+  };
   return (
     <>
       <section className="page-header -type-1">

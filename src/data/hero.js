@@ -1,7 +1,7 @@
 export const slidesData = [
   {
     id: 1,
-    bgImage: "/assets/img/home-2/mainSlider/bg.png",
+    bgImage: "/assets/img/home-2/mainSlider/web_design.png",
   },
   {
     id: 2,

@@ -10,7 +10,7 @@ export default function Instractor() {
           <div className="size-120">
             <img
               className="object-cover"
-              src="/assets/img/misc/verified/1.png"
+              src="/assets/img/misc/verified/Floyd_Miles.jpg"
               alt="image"
             />
           </div>
