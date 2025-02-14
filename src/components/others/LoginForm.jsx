@@ -23,12 +23,8 @@ export default function LoginForm() {
      
       if (response.status === "success") {
         const { refreshToken, accessToken } = response.data;
-
-        sessionStorage.setItem("rtoken", refreshToken);
-
-      
+        await sessionStorage.setItem("rtoken", refreshToken);
         setToken(accessToken);
-
         return response; 
       } else {
         throw new Error(response.data.message || "Login failed.");
@@ -40,7 +36,6 @@ export default function LoginForm() {
       throw new Error(errorMessage);
     }
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

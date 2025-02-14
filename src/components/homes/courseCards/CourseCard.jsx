@@ -1,7 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 export default function CourceCard({ data, index }) {
   const [rating, setRating] = useState([]);
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function CourceCard({ data, index }) {
               <img
                 style={{ height: "100%", width: "100%" }}
                 className="w-1/1"
-                src={data.imageSrc}
+                src={data.imageUrls || "/assets/img/coursesCards/javascript.png"}
                 alt="image"
               />
               <div className="coursesCard__image_overlay rounded-8"></div>
@@ -49,14 +49,16 @@ export default function CourceCard({ data, index }) {
           <div className="h-100 pt-15">
             <div className="d-flex items-center">
               <div className="text-14 lh-1 text-yellow-1 mr-10">
-                {data.rating}
+                {/*{data.rating}*/}5.00
               </div>
               <div className="d-flex x-gap-5 items-center">
                 {rating.map((itm, i) => (
                   <div key={i} className="icon-star text-9 text-yellow-1"></div>
                 ))}
               </div>
-              <div className="text-13 lh-1 ml-10">({data.ratingCount})</div>
+              <div className="text-13 lh-1 ml-10">
+                ({/*{data.ratingCount}*/}1000)
+              </div>
             </div>
 
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
@@ -66,53 +68,63 @@ export default function CourceCard({ data, index }) {
             </div>
 
             <div className="d-flex x-gap-10 items-center pt-10">
+              {/*<div className="d-flex items-center">*/}
+              {/*  <div className="mr-8">*/}
+              {/*    <img src="assets/img/coursesCards/icons/1.svg" alt="icon" />*/}
+              {/*  </div>*/}
+              {/*  <div className="text-14 lh-1">{data.lessonCount} lesson</div>*/}
+              {/*</div>*/}
+
               <div className="d-flex items-center">
                 <div className="mr-8">
-                  <img src="assets/img/coursesCards/icons/1.svg" alt="icon" />
+                  <img src="assets/img/coursesCards/icons/2.svg" alt="icon"/>
                 </div>
-                <div className="text-14 lh-1">{data.lessonCount} lesson</div>
+                <div className="text-14 lh-1 m-1 ">Start:</div>
+                <div className="text-14 lh-1">{data.beginDate}</div>
+              </div>
+
+              <div className="d-flex items-center">
               </div>
 
               <div className="d-flex items-center">
                 <div className="mr-8">
-                  <img src="assets/img/coursesCards/icons/2.svg" alt="icon" />
+                  <img src="assets/img/coursesCards/icons/2.svg" alt="icon"/>
                 </div>
-                <div className="text-14 lh-1">{`${Math.floor(
-                  data.duration / 60,
-                )}h ${Math.floor(data.duration % 60)}m`}</div>
+                <div className="text-14 lh-1 m-1">End:</div>
+                <div className="text-14 lh-1">{data.endDate}</div>
               </div>
 
-              <div className="d-flex items-center">
-                <div className="mr-8">
-                  <img src="assets/img/coursesCards/icons/3.svg" alt="icon" />
-                </div>
-                <div className="text-14 lh-1">{data.level}</div>
-              </div>
+              {/*  <div className="d-flex items-center">*/}
+              {/*    <div className="mr-8">*/}
+              {/*      <img src="assets/img/coursesCards/icons/3.svg" alt="icon" />*/}
+              {/*    </div>*/}
+              {/*    <div className="text-14 lh-1">{data.level}</div>*/}
+              {/*  </div>*/}
             </div>
 
             <div className="coursesCard-footer">
               <div className="coursesCard-footer__author">
-                <img src={data.authorImageSrc} alt="image" />
-                <div>{data.authorName}</div>
+                <img src={data.authorImageSrc || "/assets/img/general/avatar-1.png" } alt="image"/>
+                <div>{data.authorName || "John Doe"}</div>
               </div>
 
               <div className="coursesCard-footer__price">
-                {data.paid ? (
+                {data.price ? (
                   <>
-                    <div>${data.originalPrice}</div>
-                    <div>${data.discountedPrice}</div>
-                  </>
-                ) : (
-                  <>
-                    <div></div>
-                    <div>Free</div>
-                  </>
-                )}
+                    <div>${data.price}</div>
+                    {/*<div>${data.discountedPrice}</div>*/}
+                    </>
+                  ) : (
+                    <>
+                      <div></div>
+                      <div>Free</div>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+      );
+      }

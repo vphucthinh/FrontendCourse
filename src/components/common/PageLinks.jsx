@@ -7,31 +7,31 @@ export default function PageLinks({ dark }) {
       <div className="container">
         <div className="row">
           <div className="col-auto">
-            <div className="breadcrumbs__content">
-              <div
-                className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}
-              >
-                <Link to="/">Home</Link>
-              </div>
+            {/*<div className="breadcrumbs__content">*/}
+            {/*  <div*/}
+            {/*    className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}*/}
+            {/*  >*/}
+            {/*    <Link to="/">Home</Link>*/}
+            {/*  </div>*/}
 
-              <div
-                className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}
-              >
-                <Link to="/courses-list-3">All courses</Link>
-              </div>
+            {/*  <div*/}
+            {/*    className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}*/}
+            {/*  >*/}
+            {/*    <Link to="/courses-list-3">All courses</Link>*/}
+            {/*  </div>*/}
 
-              <div
-                className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}
-              >
-                <Link to="/courses-list-5">User Experience Design</Link>
-              </div>
+            {/*  <div*/}
+            {/*    className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}*/}
+            {/*  >*/}
+            {/*    <Link to="/courses-list-5">User Experience Design</Link>*/}
+            {/*  </div>*/}
 
-              <div
-                className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}
-              >
-                <Link to="/courses-list-6">User Interface</Link>
-              </div>
-            </div>
+            {/*  <div*/}
+            {/*    className={`breadcrumbs__item ${dark ? "text-dark-3" : ""} `}*/}
+            {/*  >*/}
+            {/*    <Link to="/courses-list-6">User Interface</Link>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>

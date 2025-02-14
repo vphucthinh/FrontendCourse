@@ -1,49 +1,57 @@
-import React from "react";
-import CourceCard from "../courseCards/CourseCard";
-import { coursesData, catagories } from "../../../data/courses";
 import { useState, useEffect } from "react";
+import CourceCard from "../courseCards/CourseCard";
+import {getAllCourses} from "@/services/courseService.jsx";
+import {catagories} from "@/data/courses.js";
+
+
 export default function Courses() {
-  const [filtered, setFiltered] = useState();
+  const [courses, setCourses] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [category, setCategory] = useState("All Categories");
+
   useEffect(() => {
-    if (category == "All Categories") {
-      setFiltered();
+    const fetchCourses = async () => {
+      const data = await getAllCourses();
+      setCourses(data);
+      setFiltered(data);
+    };
+    fetchCourses();
+  }, []);
+
+
+  useEffect(() => {
+    if (category === "All Categories") {
+      setFiltered(courses);
     } else {
-      const filteredData = coursesData.filter(
-        (elm) => elm.category == category,
-      );
-      setFiltered(filteredData);
+      setFiltered(courses.filter((course) => course.category === category));
     }
-  }, [category]);
+  }, [category, courses]);
 
   return (
     <section className="layout-pt-lg layout-pb-lg">
       <div className="row justify-center text-center">
         <div className="col-auto">
-          <div className="sectionTitle ">
+          <div className="sectionTitle">
             <h2 className="sectionTitle__title sm:text-24">
               Our Most Popular Courses
             </h2>
-
-            <p className="sectionTitle__text ">
-              10,000+ unique online course list designs
-            </p>
+            <p className="sectionTitle__text">10,000+ unique online course list designs</p>
           </div>
         </div>
       </div>
-      <div className="tabs__controls flex-wrap  pt-50 d-flex justify-center x-gap-10 js-tabs-controls">
+
+      <div className="tabs__controls flex-wrap pt-50 d-flex justify-center x-gap-10 js-tabs-controls">
         {catagories.map((elm, i) => (
-          <div onClick={() => setCategory(elm)} key={i}>
-            <button
-              className={`tabs__button px-15 py-8 rounded-8 js-tabs-button ${
-                category == elm ? "tabActive" : ""
-              } `}
-              data-tab-target=".-tab-item-2"
-              type="button"
-            >
-              {elm}
-            </button>
-          </div>
+          <button
+            key={i}
+            onClick={() => setCategory(elm)}
+            className={`tabs__button px-15 py-8 rounded-8 js-tabs-button ${
+              category === elm ? "tabActive" : ""
+            }`}
+            type="button"
+          >
+            {elm}
+          </button>
         ))}
       </div>
 
@@ -53,19 +61,9 @@ export default function Courses() {
         data-aos-offset="80"
         data-aos-duration={800}
       >
-        {filtered
-          ? filtered.map((elm, index) => (
-              <CourceCard
-                key={index}
-                data={elm}
-                index={index}
-                data-aos="fade-right"
-                data-aos-duration={(index + 1) * 300}
-              />
-            ))
-          : coursesData
-              .slice(0, 8)
-              .map((elm, index) => <CourceCard key={index} data={elm} />)}
+        {filtered.map((elm, index) => (
+          <CourceCard key={index} data={elm} data-aos="fade-right" data-aos-duration={(index + 1) * 300} />
+        ))}
       </div>
     </section>
   );

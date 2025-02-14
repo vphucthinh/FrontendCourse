@@ -1,26 +1,28 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/provider/authProvider.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const ProtectedRoute = () => {
   const { atoken, isRefreshed } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Log token and isRefreshed to check their values
   useEffect(() => {
-    console.log("Token:", atoken); // Log token
-    console.log("Is Refreshed:", isRefreshed); // Log isRefreshed
+    console.log("Token:", atoken);
+    console.log("Is Refreshed:", isRefreshed);
+
+    // Wait for the refresh process to complete before setting loading to false
+    if (isRefreshed) {
+      setIsLoading(false);
+    }
   }, [atoken, isRefreshed]);
 
-  // If not authenticated or not refreshed, show loading screen
-  if (!isRefreshed) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  // If not authenticated, redirect to login
   if (!atoken) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" replace />;
   }
 
-  // If authenticated, render child routes
   return <Outlet />;
 };

@@ -1,13 +1,14 @@
 import { coursesData } from "@/data/courses";
 import { events } from "@/data/events";
 import { productData } from "@/data/products";
-import React, {createContext, useEffect} from "react";
+import {createContext, useEffect} from "react";
 import { useContext, useState } from "react";
 import api from "@/api/api.jsx";
 import {Constants} from "@/constants/constants.jsx";
 import {useAuth} from "@/provider/authProvider.jsx";
+import {getUserpicture, getUserProfile} from "@/services/profileService.jsx";
 
-const dataContext = React.createContext();
+const dataContext = createContext();
 const UserProfileContext = createContext();
 
 export const useUserProfile = () => useContext(UserProfileContext);
@@ -53,8 +54,6 @@ export default function Context({ children }) {
   const [singleCourse, setSingleCourse] = useState(null); // Specific course details
   const [loading, setLoading] = useState(false); // Loading state for data fetching
   const [error, setError] = useState(null); // Error state for handling errors
-
-
 
   const addCourseToCart = (id) => {
     if (!cartCourses.filter((elm) => elm.id == id)[0]) {
@@ -117,13 +116,15 @@ export default function Context({ children }) {
 
   const fetchProfile = async () => {
     if (!token) return; // If no token, exit the function
-
     setLoadingProfile(true);
     try {
-      const response = await api.get( `${Constants.API_ENDPOINTS.USER.BASE}`);
+      const username = sessionStorage.getItem("username");
+      const response = await getUserProfile(username);
       console.log(response)
       setProfile(response); // Set the profile data
-      setProfilePic(response?.avatar || null); // Set the profile picture
+      const reponsePicture = await getUserpicture(response.data.id);
+      console.log(reponsePicture);
+      setProfilePic(reponsePicture);
     } catch (error) {
       console.error("Error fetching profile data:", error);
     } finally {
@@ -137,7 +138,8 @@ export default function Context({ children }) {
     setLoading(true);
     try {
         const response = await api.get(`${Constants.API_ENDPOINTS.COURSES.ALL}`);
-        setCourses(response.data); 
+        setCourses(response.data);
+        console.log(response.data)
     } catch (err) {
         console.error("Error fetching courses:", err);
         setError(err);
@@ -165,8 +167,8 @@ export default function Context({ children }) {
   // useEffect to monitor token changes and fetch profile accordingly
   useEffect(() => {
     if (token) {
-      fetchProfile(); // Fetch profile whenever a new token is set
-      fetchAllCourses();
+      fetchProfile().then(() => console.log("already fetch user profile")); // Fetch profile whenever a new token is set
+      fetchAllCourses().then(() => console.log("already fetch course"));
     }
   }, [token]);
 

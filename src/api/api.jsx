@@ -3,10 +3,12 @@ import {Constants} from "../constants/constants.jsx";
 
 export const api = axios.create({
     baseURL: Constants.API_URL,
+    timeout:10000,
 });
 
 export const apiUser = axios.create({
     baseURL: Constants.API_URL,
+    timeout:10000,
 });
 
 apiUser.interceptors.request.use(
@@ -39,7 +41,7 @@ api.interceptors.response.use(
                 const response = await apiUser.post(
                     Constants.API_ENDPOINTS.AUTH.REFRESH,
                     {
-                        refresh: rtoken,
+                        refreshToken: rtoken,
                     },
                     {
                         headers: {

@@ -57,7 +57,6 @@ export default function SignUpForm() {
       setIsLoading(false); 
     }
   };
-  
 
   return (
     <div className="form-page__content lg:py-50">

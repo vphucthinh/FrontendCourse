@@ -12,7 +12,8 @@ export const Constants = {
     USER: {
       PROFILE: (username) => `/api/profile/${username}/get-profile`,
       UPDATE_PROFILE: (username) => `/api/profile/${username}/update-user-profile`,
-      UPLOAD_AVATAR: "/api/profile/upload-avatar",
+      UPLOAD_AVATAR: "/api/profile/upload-imager",
+      PROFILE_IMAGE: (profileId) => `/api/image/profile/${profileId}/get-one"`,
     },
     COURSES: {
       GET_ALL: "api/courses/get-all",

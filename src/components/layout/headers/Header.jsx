@@ -5,8 +5,6 @@ import CartToggle from "../component/CartToggle";
 import Menu from "../component/Menu";
 import { Link } from "react-router-dom";
 import MobileMenu from "../component/MobileMenu";
-import { Constants } from "@/constants/constants.jsx";
-import api from "@/api/api.jsx";
 import {useUserProfile} from "@/context/Context.jsx";
 import {useAuth} from "@/provider/authProvider.jsx";
 
@@ -52,7 +50,7 @@ export default function Header() {
                       <div className="header__logo ml-30 md:ml-20">
                         <Link to="/dshb-dashboard">
                           <img
-                              src={`${Constants.API_ENDPOINTS.IMG_ROOT}/${profilePic }` || "@/assets/img/misc/user-profile.png"} // Use fallback if profilePic is null
+                              src={`${profilePic}` || "@/assets/img/misc/user-profile.png"} // Use fallback if profilePic is null
                               alt="Profile"
                               style={{ width: "40px", height: "40px", borderRadius: "50%" }}
                           />

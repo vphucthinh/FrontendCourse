@@ -3761,12 +3761,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .coursesCard.-type-1 .coursesCard-footer__price > div:nth-child(1) {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 17px;
   font-weight: 500;
   margin-right: 10px;
   color: var(--color-light-1);
-  text-decoration: line-through;
+  /*text-decoration: line-through;*/
 }
 
 .coursesCard.-type-1 .coursesCard-footer__price > div:nth-child(2) {
